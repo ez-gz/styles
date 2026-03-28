@@ -29,6 +29,8 @@ A monospace-first, brutalist design system. Hard edges, tight letter-spacing, mo
 
 **Components:** Toggle · Custom Select · Radio · Breadcrumb · Pagination · Toast · Progress Bar · Stepper · Accordion · Tag · Dropdown Menu · Code Block
 
+**Also available for native macOS (SwiftUI):** [`typewriter/macos/`](typewriter/macos/) — same tokens and rules ported to SF Mono + `NSColor`, with ViewModifiers (`.twCard()`, `.twButton()`, `.twRow()`, `.twTag()`) and a standalone component gallery. Drop `TypewriterStyle.swift` into any project, no package needed.
+
 **Porting to Tailwind:**
 
 ```js
