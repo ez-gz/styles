@@ -93,6 +93,17 @@ textarea:disabled {
   cursor: not-allowed;
 }
 
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--tw-ink);
+  outline-offset: -1px;
+}
+
+button:focus-visible {
+  outline: 1px solid var(--tw-ink);
+  outline-offset: -1px;
+}
+
 input, textarea {
   width: 100%;
   padding: 10px 12px;
@@ -102,6 +113,19 @@ textarea {
   resize: vertical;
   min-height: 160px;
 }
+
+/* ── Control row ─────────────────────────────────────────── */
+
+/* A flex row that aligns mixed controls (inputs, selects, toggles)
+   to a shared 38px height. flex: 1 1 0 on any child fills remaining space. */
+.tw-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Children that should fill remaining horizontal space: flex: 1 1 0; min-width: 0 */
 
 /* ── Layout shells ───────────────────────────────────────── */
 
@@ -200,6 +224,16 @@ h1, .tw-h1 {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.tw-badge-inverted {
+  background: var(--tw-ink);
+  color: var(--tw-paper);
+}
+
+.tw-badge-dashed {
+  border-style: dashed;
+  color: var(--tw-muted);
 }
 
 /* ── Status / feedback ───────────────────────────────────── */
@@ -348,7 +382,7 @@ h1, .tw-h1 {
 .tw-cselect-btn:hover { background: var(--tw-hover); }
 .tw-cselect-arrow { font-size: 12px; flex-shrink: 0; transition: transform 80ms linear; }
 .tw-cselect[data-open] .tw-cselect-arrow { transform: rotate(180deg); }
-.tw-cselect-menu { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; display: none; border: 1px solid var(--tw-ink); border-top: none; background: var(--tw-paper); }
+.tw-cselect-menu { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; display: none; border: 1px solid var(--tw-ink); border-top: none; background: var(--tw-paper); max-height: 280px; overflow-y: auto; }
 .tw-cselect[data-open] .tw-cselect-menu { display: block; }
 .tw-cselect-opt { display: block; width: 100%; padding: 10px 12px; background: none; border: none; border-bottom: 1px solid var(--tw-rule); text-align: left; cursor: pointer; font: inherit; font-size: 14px; letter-spacing: 0.04em; color: var(--tw-ink); }
 .tw-cselect-opt:last-child { border-bottom: none; }
