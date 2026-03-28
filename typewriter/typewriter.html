@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typewriter — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TYPEWRITER DESIGN SYSTEM — COMPLETE CSS
+       Copy everything between the START and END markers into
+       any project to apply this style.
+    ============================================================ */
+
+    /* ── START TYPEWRITER CSS ───────────────────────────────── */
+
+    :root {
+      /* Colors */
+      --tw-ink:        #111;
+      --tw-paper:      #fff;
+      --tw-muted:      #555;
+      --tw-dim:        #333;
+      --tw-rule:       #d0d0d0;
+      --tw-hover:      #f5f5f5;
+      --tw-active-bg:  #f7f7f7;
+      --tw-error:      #7a0000;
+
+      /* Typography */
+      --tw-font: "Courier Prime", "IBM Plex Mono", ui-monospace,
+                 SFMono-Regular, Menlo, Monaco, Consolas,
+                 "Liberation Mono", monospace;
+
+      /* Spacing */
+      --tw-pad-sm:  8px;
+      --tw-pad-md:  12px;
+      --tw-pad-lg:  24px;
+      --tw-gap-xs:  4px;
+      --tw-gap-sm:  6px;
+      --tw-gap-md:  8px;
+      --tw-gap-lg:  10px;
+      --tw-gap-xl:  12px;
+
+      /* Layout */
+      --tw-max-width:       720px;
+      --tw-max-width-wide:  1100px;
+
+      color-scheme: light;
+      font-family: var(--tw-font);
+      background: var(--tw-paper);
+      color: var(--tw-ink);
+      line-height: 1.45;
+      font-weight: 400;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body, #root {
+      margin: 0;
+      min-height: 100%;
+      background: var(--tw-paper);
+    }
+
+    body {
+      padding: var(--tw-pad-lg);
+      background:
+        linear-gradient(180deg, #fff 0%, #fafafa 100%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,0,0,0.025) 0 1px,
+          transparent 1px 64px
+        );
+      background-blend-mode: normal;
+    }
+
+    /* ── Reset ───────────────────────────────────────────────── */
+
+    h1, h2, h3, p { margin: 0; }
+
+    /* ── Form controls ───────────────────────────────────────── */
+
+    button, input, textarea {
+      font: inherit;
+      border: 1px solid var(--tw-ink);
+      border-radius: 0;
+      background: var(--tw-paper);
+      color: var(--tw-ink);
+    }
+
+    button {
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    textarea:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 160px;
+    }
+
+    /* ── Layout shells ───────────────────────────────────────── */
+
+    .tw-shell {
+      max-width: var(--tw-max-width);
+      margin: 0 auto;
+      min-height: calc(100vh - 48px);
+      display: grid;
+      place-items: center;
+    }
+
+    .tw-shell-wide {
+      max-width: var(--tw-max-width-wide);
+    }
+
+    .tw-app-card {
+      width: 100%;
+      padding: var(--tw-pad-lg);
+    }
+
+    /* ── Containers ──────────────────────────────────────────── */
+
+    .tw-panel {
+      border: 1px solid var(--tw-ink);
+      padding: var(--tw-pad-lg);
+      background: var(--tw-paper);
+    }
+
+    .tw-card {
+      border: 1px solid var(--tw-rule);
+      padding: 10px var(--tw-pad-md);
+      display: grid;
+      gap: var(--tw-gap-sm);
+    }
+
+    .tw-card-active {
+      border-color: var(--tw-ink);
+      background: var(--tw-active-bg);
+    }
+
+    /* ── Section blocks ──────────────────────────────────────── */
+
+    .tw-section {
+      margin-top: var(--tw-pad-lg);
+      padding-top: 18px;
+      border-top: 1px solid var(--tw-ink);
+      display: grid;
+      gap: var(--tw-gap-lg);
+    }
+
+    /* ── Typography ──────────────────────────────────────────── */
+
+    .tw-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      margin-bottom: var(--tw-pad-md);
+    }
+
+    h1, .tw-h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      margin-bottom: var(--tw-pad-md);
+    }
+
+    .tw-lede {
+      margin-top: var(--tw-pad-sm);
+      max-width: 38ch;
+      font-size: 15px;
+      color: var(--tw-dim);
+    }
+
+    .tw-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+    }
+
+    .tw-muted { color: var(--tw-muted); }
+    .tw-dim   { color: var(--tw-dim);   }
+
+    .tw-meta {
+      font-size: 13px;
+      text-transform: lowercase;
+      letter-spacing: 0.04em;
+    }
+
+    .tw-speaker { font-weight: 600; }
+
+    /* ── Inline badges ───────────────────────────────────────── */
+
+    .tw-badge {
+      display: inline-block;
+      padding: 1px 5px;
+      border: 1px solid var(--tw-ink);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Status / feedback ───────────────────────────────────── */
+
+    .tw-alert {
+      margin-top: var(--tw-pad-md);
+      font-size: 13px;
+      color: var(--tw-error);
+    }
+
+    .tw-waiting {
+      text-transform: lowercase;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--tw-dim);
+    }
+
+    .tw-button-hint {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--tw-muted);
+    }
+
+    /* ── Story / content reveal ──────────────────────────────── */
+
+    .tw-story {
+      gap: var(--tw-pad-md);
+    }
+
+    .tw-story-heading {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .tw-story-copy {
+      min-height: 3.5em;
+      transition: opacity 140ms linear;
+    }
+
+    .tw-story-revealing { opacity: 0.92; }
+    .tw-story-complete   { opacity: 1;    }
+    .tw-story-highlight  { font-weight: 700; }
+
+    /* ── Rows & flex layouts ─────────────────────────────────── */
+
+    .tw-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--tw-gap-xl);
+    }
+
+    .tw-join-block {
+      display: grid;
+      gap: var(--tw-pad-sm);
+    }
+
+    /* ── Tables ──────────────────────────────────────────────── */
+
+    .tw-table-wrap {
+      margin-top: var(--tw-pad-lg);
+      overflow-x: auto;
+    }
+
+    .tw-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .tw-table th,
+    .tw-table td {
+      border: 1px solid var(--tw-ink);
+      padding: 10px var(--tw-pad-md);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .tw-table tr[data-clickable] { cursor: pointer; }
+    .tw-table tr[data-clickable]:hover { background: var(--tw-hover); }
+
+    /* ── Typewriter dot animation ────────────────────────────── */
+
+    @keyframes tw-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .tw-cursor::after {
+      content: "▎";
+      animation: tw-blink 1s step-end infinite;
+    }
+
+    /* ── Loading dots (CSS version) ──────────────────────────── */
+
+    .tw-dots::after {
+      content: "";
+      animation: tw-dot-cycle 1.35s steps(1) infinite;
+    }
+
+    @keyframes tw-dot-cycle {
+      0%   { content: ".";   }
+      33%  { content: "..";  }
+      66%  { content: "..."; }
+    }
+
+    /* ── Toggle ──────────────────────────────────────────────── */
+
+    .tw-toggle {
+      display: inline-flex;
+      border: 1px solid var(--tw-ink);
+    }
+
+    .tw-toggle-opt {
+      border: none;
+      border-right: 1px solid var(--tw-ink);
+      padding: 8px 14px;
+      background: var(--tw-paper);
+      color: var(--tw-ink);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+    }
+
+    .tw-toggle-opt:last-child {
+      border-right: none;
+    }
+
+    .tw-toggle-opt:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .tw-toggle-on {
+      background: var(--tw-ink);
+      color: var(--tw-paper);
+    }
+
+    /* ── Custom Select ───────────────────────────────────────── */
+
+    .tw-cselect { position: relative; display: inline-block; min-width: 160px; }
+    .tw-cselect-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--tw-ink); background: var(--tw-paper); color: var(--tw-ink); cursor: pointer; font: inherit; text-align: left; letter-spacing: 0.04em; border-radius: 0; }
+    .tw-cselect-btn:hover { background: var(--tw-hover); }
+    .tw-cselect-arrow { font-size: 12px; flex-shrink: 0; transition: transform 80ms linear; }
+    .tw-cselect[data-open] .tw-cselect-arrow { transform: rotate(180deg); }
+    .tw-cselect-menu { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; display: none; border: 1px solid var(--tw-ink); border-top: none; background: var(--tw-paper); }
+    .tw-cselect[data-open] .tw-cselect-menu { display: block; }
+    .tw-cselect-opt { display: block; width: 100%; padding: 10px 12px; background: none; border: none; border-bottom: 1px solid var(--tw-rule); text-align: left; cursor: pointer; font: inherit; font-size: 14px; letter-spacing: 0.04em; color: var(--tw-ink); }
+    .tw-cselect-opt:last-child { border-bottom: none; }
+    .tw-cselect-opt:hover { background: var(--tw-hover); }
+    .tw-cselect-opt[data-selected] { background: var(--tw-active-bg); font-weight: 600; }
+
+    /* ── Radio ───────────────────────────────────────────────── */
+
+    .tw-radio-opt { display: flex; align-items: baseline; gap: 8px; cursor: pointer; user-select: none; font-size: 14px; }
+    .tw-radio-opt input[type="radio"] { appearance: none; -webkit-appearance: none; width: 14px; height: 14px; min-width: 14px; border: 1px solid var(--tw-ink); background: var(--tw-paper); position: relative; top: 1px; cursor: pointer; border-radius: 0; margin: 0; flex-shrink: 0; }
+    .tw-radio-opt input[type="radio"]:checked::after { content: ""; position: absolute; inset: 2px; background: var(--tw-ink); }
+
+    /* ── Breadcrumb ──────────────────────────────────────────── */
+
+    .tw-breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 13px; letter-spacing: 0.04em; flex-wrap: wrap; }
+    .tw-breadcrumb a { color: var(--tw-muted); text-decoration: none; }
+    .tw-breadcrumb a:hover { color: var(--tw-ink); }
+    .tw-breadcrumb-sep { color: var(--tw-rule); }
+
+    /* ── Toast ───────────────────────────────────────────────── */
+
+    .tw-toast { border: 1px solid var(--tw-ink); padding: 12px 16px; background: var(--tw-paper); display: grid; gap: 2px; }
+    .tw-toast-title { font-weight: 600; font-size: 13px; }
+    .tw-toast-body { font-size: 13px; color: var(--tw-dim); }
+    .tw-toast-error { border-color: var(--tw-error); }
+    .tw-toast-error .tw-toast-title { color: var(--tw-error); }
+
+    /* ── Progress ────────────────────────────────────────────── */
+
+    .tw-progress { font-size: 13px; display: grid; gap: 4px; }
+    .tw-progress-track { letter-spacing: -0.04em; }
+    .tw-progress-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--tw-muted); }
+
+    /* ── Stepper ─────────────────────────────────────────────── */
+
+    .tw-stepper { display: flex; align-items: flex-start; }
+    .tw-step { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .tw-step-num { width: 28px; height: 28px; border: 1px solid var(--tw-rule); display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--tw-paper); color: var(--tw-muted); flex-shrink: 0; }
+    .tw-step-active .tw-step-num { border-color: var(--tw-ink); background: var(--tw-ink); color: var(--tw-paper); }
+    .tw-step-done .tw-step-num { border-color: var(--tw-ink); color: var(--tw-ink); }
+    .tw-step-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--tw-muted); white-space: nowrap; }
+    .tw-step-active .tw-step-label { color: var(--tw-ink); }
+    .tw-step-done .tw-step-label { color: var(--tw-dim); }
+    .tw-step-line { flex: 1; height: 1px; background: var(--tw-rule); margin-top: 14px; min-width: 20px; }
+    .tw-step-line-done { background: var(--tw-ink); }
+
+    /* ── Accordion ───────────────────────────────────────────── */
+
+    .tw-accordion { border: 1px solid var(--tw-ink); }
+    .tw-accordion-item { border-bottom: 1px solid var(--tw-ink); }
+    .tw-accordion-item:last-child { border-bottom: none; }
+    .tw-accordion-trigger { width: 100%; padding: 12px 14px; background: none; border: none; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; font: inherit; font-size: 14px; letter-spacing: 0.04em; }
+    .tw-accordion-trigger:hover { background: var(--tw-hover); }
+    .tw-accordion-icon { flex-shrink: 0; font-size: 14px; color: var(--tw-muted); transition: transform 80ms linear; }
+    .tw-accordion-content { display: none; padding: 0 14px 14px; font-size: 13px; color: var(--tw-dim); line-height: 1.7; }
+    .tw-accordion-item[data-open] .tw-accordion-icon { transform: rotate(45deg); }
+    .tw-accordion-item[data-open] .tw-accordion-content { display: block; }
+
+    /* ── Tag ─────────────────────────────────────────────────── */
+
+    .tw-tag { display: inline-flex; align-items: center; border: 1px solid var(--tw-rule); padding: 2px 4px 2px 8px; gap: 4px; font-size: 12px; letter-spacing: 0.06em; }
+    .tw-tag-remove { background: none; border: none; padding: 2px 4px; cursor: pointer; color: var(--tw-muted); font-size: 14px; line-height: 1; font: inherit; }
+    .tw-tag-remove:hover { color: var(--tw-ink); }
+
+    /* ── Dropdown Menu ───────────────────────────────────────── */
+
+    .tw-dropdown-menu { border: 1px solid var(--tw-ink); background: var(--tw-paper); min-width: 180px; }
+    .tw-dropdown-item { display: block; width: 100%; padding: 10px 14px; background: none; border: none; border-bottom: 1px solid var(--tw-rule); text-align: left; cursor: pointer; font: inherit; font-size: 13px; letter-spacing: 0.04em; color: var(--tw-ink); }
+    .tw-dropdown-item:last-child { border-bottom: none; }
+    .tw-dropdown-item:hover { background: var(--tw-hover); }
+    .tw-dropdown-item-active { background: var(--tw-active-bg); font-weight: 600; }
+    .tw-dropdown-item-danger { color: var(--tw-error); }
+
+    /* ── Code Block ──────────────────────────────────────────── */
+
+    .tw-code-block { border: 1px solid var(--tw-ink); }
+    .tw-code-header { background: var(--tw-ink); color: var(--tw-paper); padding: 7px 14px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: 0.08em; }
+    .tw-code-lang { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; opacity: 0.45; }
+    .tw-code-body { background: var(--tw-active-bg); padding: 10px 0; overflow-x: auto; }
+    .tw-code-table { border-collapse: collapse; font: 13px/1.8 var(--tw-font); white-space: pre; width: 100%; }
+    .tw-code-ln { padding: 0 14px 0 12px; color: var(--tw-muted); text-align: right; user-select: none; border-right: 1px solid var(--tw-rule); font-size: 11px; vertical-align: top; min-width: 36px; }
+    .tw-code-line { padding: 0 16px; vertical-align: top; }
+    .tw-code-inline { background: var(--tw-active-bg); border: 1px solid var(--tw-rule); padding: 1px 5px; font-size: 0.9em; font-family: var(--tw-font); }
+
+    /* ── Responsive ──────────────────────────────────────────── */
+
+    @media (max-width: 860px) {
+      body { padding: 16px; }
+      .tw-shell { min-height: calc(100vh - 32px); }
+      .tw-panel { padding: 20px; }
+    }
+
+    /* ── END TYPEWRITER CSS ─────────────────────────────────── */
+
+
+    /* ============================================================
+       STYLEGUIDE PAGE CHROME (not part of the design system)
+    ============================================================ */
+
+    .sg-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+    .sg-header {
+      padding: 48px 0 32px;
+      border-bottom: 2px solid var(--tw-ink);
+      margin-bottom: 48px;
+    }
+
+    .sg-version {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tw-muted);
+      margin-bottom: 16px;
+    }
+
+    .sg-section {
+      margin-bottom: 64px;
+    }
+
+    .sg-section-title {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--tw-muted);
+      border-bottom: 1px solid var(--tw-rule);
+      padding-bottom: 8px;
+      margin-bottom: 32px;
+    }
+
+    .sg-group {
+      margin-bottom: 32px;
+    }
+
+    .sg-group-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--tw-muted);
+      margin-bottom: 12px;
+    }
+
+    .sg-demo {
+      border: 1px solid var(--tw-rule);
+      padding: 24px;
+      background: var(--tw-paper);
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .sg-demo-dark {
+      background: #f7f7f7;
+    }
+
+    .sg-code {
+      font: 11px/1.6 var(--tw-font);
+      color: var(--tw-muted);
+      padding: 8px 12px;
+      background: var(--tw-active-bg);
+      border: 1px solid var(--tw-rule);
+      border-top: none;
+      white-space: pre;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+
+    .sg-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .sg-col-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .sg-swatch {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--tw-rule);
+      flex-shrink: 0;
+    }
+
+    .sg-swatch-label {
+      font-size: 11px;
+      color: var(--tw-muted);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .sg-swatch-value {
+      font-size: 11px;
+      color: var(--tw-ink);
+    }
+
+    .sg-swatch-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sg-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+
+    .sg-nav a {
+      color: var(--tw-muted);
+      text-decoration: none;
+    }
+
+    .sg-nav a:hover {
+      color: var(--tw-ink);
+    }
+
+    .sg-rule {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--tw-dim);
+      margin-bottom: 8px;
+    }
+
+    .sg-rule strong {
+      color: var(--tw-ink);
+    }
+
+    .sg-rule-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sg-rule-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--tw-rule);
+      font-size: 13px;
+      color: var(--tw-dim);
+    }
+
+    .sg-rule-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sg-rule-list li strong {
+      color: var(--tw-ink);
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .sg-copyblock {
+      font: 12px/1.7 var(--tw-font);
+      background: var(--tw-active-bg);
+      border: 1px solid var(--tw-rule);
+      padding: 16px;
+      white-space: pre;
+      overflow-x: auto;
+      color: var(--tw-dim);
+    }
+
+    .sg-toc {
+      font-size: 13px;
+      color: var(--tw-muted);
+      display: grid;
+      gap: 4px;
+      margin-bottom: 32px;
+    }
+
+    .sg-toc a {
+      color: var(--tw-muted);
+    }
+
+    .sg-toc a:hover {
+      color: var(--tw-ink);
+    }
+
+    .sg-port-step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: start;
+    }
+
+    .sg-port-num {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--tw-rule);
+      line-height: 1;
+    }
+
+    .sg-port-body {
+      font-size: 13px;
+      color: var(--tw-dim);
+      line-height: 1.7;
+    }
+
+    .sg-port-body strong {
+      color: var(--tw-ink);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── Proposal grid (page chrome) ─────────────────────────── */
+
+    .sg-proposal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--tw-rule);
+      border: 1px solid var(--tw-rule);
+    }
+
+    .sg-proposal {
+      background: var(--tw-paper);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .sg-proposal-wide { grid-column: span 2; }
+
+    .sg-proposal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sg-proposal-preview {
+      padding: 16px;
+      background: var(--tw-active-bg);
+      border: 1px solid var(--tw-rule);
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .sg-proposal-note {
+      font-size: 12px;
+      color: var(--tw-muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 640px) {
+      .sg-proposal-grid { grid-template-columns: 1fr; }
+      .sg-proposal-wide { grid-column: span 1; }
+    }
+
+    /* (approved components now live in the design system block above) */
+  </style>
+</head>
+<body>
+
+<div class="sg-page">
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <div class="sg-header">
+    <div class="sg-version">Design System v1.0 — 2026</div>
+    <h1 style="font-size: clamp(36px, 6vw, 64px); font-weight: 500; margin-bottom: 8px;">Typewriter</h1>
+    <p class="tw-lede" style="max-width: 52ch;">
+      A minimal, monospace-first design system built on hard edges,
+      tight letter-spacing, and motion through text — not decoration.
+    </p>
+    <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--tw-rule);">
+      <nav class="sg-nav">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#tokens">Tokens</a>
+        <a href="#typography">Typography</a>
+        <a href="#components">Components</a>
+        <a href="#patterns">Patterns</a>
+        <a href="#animation">Animation</a>
+        <a href="#porting">Porting Guide</a>
+        <a href="#css">Full CSS</a>
+        <a href="#roadmap">Component Roadmap</a>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- ── Philosophy ──────────────────────────────────────────── -->
+  <div class="sg-section" id="philosophy">
+    <div class="sg-section-title">01 — Philosophy</div>
+
+    <p style="font-size: 15px; color: var(--tw-dim); line-height: 1.8; max-width: 60ch; margin-bottom: 28px;">
+      Typewriter is a brutalist web design system built around the monospace font as a singular aesthetic choice.
+      Everything else follows from that — sharp corners because serif type has serifs, tight spacing because
+      type has metrics, motion through text because the typewriter advances one character at a time.
+    </p>
+
+    <ul class="sg-rule-list" style="border-top: 1px solid var(--tw-rule);">
+      <li>
+        <strong>One font family, used completely</strong>
+        Courier Prime or IBM Plex Mono at all sizes, weights, and cases. No display font, no sans fallback, no exceptions.
+      </li>
+      <li>
+        <strong>No rounded corners, ever</strong>
+        border-radius: 0 on all interactive elements. Softness is never the goal. Hard edges reinforce the grid.
+      </li>
+      <li>
+        <strong>Text is the interface</strong>
+        Loading states are words ("waiting...", "loading..."). Errors are sentences. Labels are uppercase type, not icons.
+        The UI communicates through writing, not symbols.
+      </li>
+      <li>
+        <strong>Motion through opacity and text, not transforms</strong>
+        Content reveals via opacity transitions. Waiting states animate the text itself (dot cycling). No slides, bounces, or fades from below.
+      </li>
+      <li>
+        <strong>Two colors: ink and paper</strong>
+        #111 on #fff. A third color (#7a0000) exists only for errors. Everything else is a tint of black.
+      </li>
+      <li>
+        <strong>Typography is layout</strong>
+        Letter-spacing, text-transform, and size differences create the visual hierarchy. There are no background colors for grouping — borders do that.
+      </li>
+      <li>
+        <strong>Density without clutter</strong>
+        Spacing is generous enough to breathe but never decorative. Every pixel of margin serves legibility.
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- ── Tokens ──────────────────────────────────────────────── -->
+  <div class="sg-section" id="tokens">
+    <div class="sg-section-title">02 — Tokens</div>
+
+    <div class="sg-group">
+      <div class="sg-group-label">Color</div>
+      <div class="sg-demo">
+        <div class="sg-row">
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#111; border-color:#111;"></div>
+            <div class="sg-swatch-label">--tw-ink</div>
+            <div class="sg-swatch-value">#111</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#fff;"></div>
+            <div class="sg-swatch-label">--tw-paper</div>
+            <div class="sg-swatch-value">#fff</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#555; border-color:#555;"></div>
+            <div class="sg-swatch-label">--tw-muted</div>
+            <div class="sg-swatch-value">#555</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#333; border-color:#333;"></div>
+            <div class="sg-swatch-label">--tw-dim</div>
+            <div class="sg-swatch-value">#333</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#d0d0d0;"></div>
+            <div class="sg-swatch-label">--tw-rule</div>
+            <div class="sg-swatch-value">#d0d0d0</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#f5f5f5;"></div>
+            <div class="sg-swatch-label">--tw-hover</div>
+            <div class="sg-swatch-value">#f5f5f5</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#f7f7f7;"></div>
+            <div class="sg-swatch-label">--tw-active-bg</div>
+            <div class="sg-swatch-value">#f7f7f7</div>
+          </div>
+          <div class="sg-swatch-group">
+            <div class="sg-swatch" style="background:#7a0000; border-color:#7a0000;"></div>
+            <div class="sg-swatch-label">--tw-error</div>
+            <div class="sg-swatch-value">#7a0000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-group">
+      <div class="sg-group-label">Spacing</div>
+      <div class="sg-demo">
+        <div class="sg-row" style="align-items: flex-end;">
+          <div>
+            <div style="height: 4px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">xs — 4px</div>
+          </div>
+          <div>
+            <div style="height: 6px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">sm — 6px</div>
+          </div>
+          <div>
+            <div style="height: 8px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">md — 8px</div>
+          </div>
+          <div>
+            <div style="height: 10px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">lg — 10px</div>
+          </div>
+          <div>
+            <div style="height: 12px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">xl — 12px</div>
+          </div>
+          <div>
+            <div style="height: 24px; background: var(--tw-ink); width: 60px; margin-bottom: 4px;"></div>
+            <div class="sg-swatch-label">2xl — 24px</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Typography ──────────────────────────────────────────── -->
+  <div class="sg-section" id="typography">
+    <div class="sg-section-title">03 — Typography</div>
+
+    <div class="sg-group">
+      <div class="sg-group-label">Scale</div>
+      <div class="sg-demo">
+        <div style="margin-bottom: 20px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">H1 — clamp(32px, 5vw, 52px) / weight 500</div>
+          <h1 style="margin-bottom: 0;">the quick brown fox</h1>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Eyebrow — 12px / uppercase / ls 0.18em</div>
+          <div class="tw-eyebrow" style="margin-bottom: 0;">game over</div>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Label — 12px / uppercase / ls 0.14em</div>
+          <div class="tw-label">players alive</div>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Story Heading — 13px / weight 600 / uppercase / ls 0.14em</div>
+          <div class="tw-story-heading">round 3 — outcome</div>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Lede — 15px / color --tw-dim</div>
+          <div class="tw-lede" style="max-width: none;">An introductory sentence that sets the scene without crowding the headline above it.</div>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Body — 16px (root default)</div>
+          <p>The quick brown fox jumps over the lazy dog. Every character rendered in the same typeface, creating a consistent rhythm across all text.</p>
+        </div>
+        <div style="margin-bottom: 16px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Meta — 13px / lowercase / ls 0.04em</div>
+          <div class="tw-meta">round 2 of 5 · 3 players remaining</div>
+        </div>
+        <div style="border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+          <div class="sg-swatch-label" style="margin-bottom: 6px;">Muted / Dim</div>
+          <span class="tw-muted">muted — #555</span>
+          &nbsp;&nbsp;
+          <span class="tw-dim">dim — #333</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sg-group">
+      <div class="sg-group-label">Letter-spacing reference</div>
+      <div class="sg-demo">
+        <div style="display: grid; gap: 10px;">
+          <div style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">ls 0.18em — eyebrow</div>
+          <div style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">ls 0.14em — label / story heading</div>
+          <div style="font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase;">ls 0.10em — badge</div>
+          <div style="font-size: 12px; letter-spacing: 0.08em; text-transform: lowercase;">ls 0.08em — waiting / button hint</div>
+          <div style="font-size: 12px; letter-spacing: 0.04em; text-transform: lowercase;">ls 0.04em — meta / timer</div>
+          <div style="font-size: 12px; letter-spacing: 0;">ls 0 — body (default)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Components ──────────────────────────────────────────── -->
+  <div class="sg-section" id="components">
+    <div class="sg-section-title">04 — Components</div>
+
+    <!-- Buttons -->
+    <div class="sg-group">
+      <div class="sg-group-label">Buttons</div>
+      <div class="sg-demo">
+        <div class="sg-row">
+          <button>submit answer</button>
+          <button disabled>disabled</button>
+        </div>
+        <div style="margin-top: 16px;" class="sg-row">
+          <div class="tw-join-block" style="width: 200px;">
+            <button>start game</button>
+            <div class="tw-button-hint">3 players must join first</div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;button&#62;submit answer&#60;/button&#62;
+&#60;button disabled&#62;disabled&#60;/button&#62;
+
+&#60;!-- Button with hint --&#62;
+&#60;div class="tw-join-block"&#62;
+  &#60;button&#62;start game&#60;/button&#62;
+  &#60;div class="tw-button-hint"&#62;3 players must join first&#60;/div&#62;
+&#60;/div&#62;</div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="sg-group">
+      <div class="sg-group-label">Inputs</div>
+      <div class="sg-demo" style="max-width: 400px;">
+        <div class="tw-join-block">
+          <input type="text" placeholder="enter your name" />
+          <input type="text" value="prefilled value" />
+          <input type="text" disabled value="disabled" />
+          <textarea placeholder="write your response here..."></textarea>
+        </div>
+      </div>
+      <div class="sg-code">&#60;input type="text" placeholder="enter your name" /&#62;
+&#60;textarea placeholder="write your response here..."&#62;&#60;/textarea&#62;</div>
+    </div>
+
+    <!-- Panel -->
+    <div class="sg-group">
+      <div class="sg-group-label">Panel</div>
+      <div class="sg-demo">
+        <div class="tw-panel" style="max-width: 400px;">
+          <div class="tw-eyebrow">text battle royale</div>
+          <h1 style="font-size: 36px;">game lobby</h1>
+          <p class="tw-lede">waiting for players to join before the match begins.</p>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-panel"&#62;
+  &#60;div class="tw-eyebrow"&#62;text battle royale&#60;/div&#62;
+  &#60;h1&#62;game lobby&#60;/h1&#62;
+  &#60;p class="tw-lede"&#62;waiting for players...&#60;/p&#62;
+&#60;/div&#62;</div>
+    </div>
+
+    <!-- Cards -->
+    <div class="sg-group">
+      <div class="sg-group-label">Cards</div>
+      <div class="sg-demo">
+        <div style="display: grid; gap: 6px; max-width: 360px;">
+          <div class="tw-card">
+            <div><span class="tw-speaker">Alice</span></div>
+            <div class="tw-meta tw-muted">score: 840 · rank: 1</div>
+          </div>
+          <div class="tw-card tw-card-active">
+            <div><span class="tw-speaker">Bob</span> <span class="tw-badge">you</span></div>
+            <div class="tw-meta tw-muted">score: 720 · rank: 2</div>
+          </div>
+          <div class="tw-card">
+            <div><span class="tw-speaker tw-muted">Charlie</span> <span class="tw-meta tw-muted">— eliminated</span></div>
+            <div class="tw-meta tw-muted">score: 510 · rank: 3</div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-card"&#62;...&#60;/div&#62;
+&#60;div class="tw-card tw-card-active"&#62;...&#60;/div&#62;   &#60;!-- selected/current --&#62;</div>
+    </div>
+
+    <!-- Badges -->
+    <div class="sg-group">
+      <div class="sg-group-label">Badges</div>
+      <div class="sg-demo">
+        <div class="sg-row" style="align-items: center;">
+          <span>Player name</span>
+          <span class="tw-badge">you</span>
+          <span class="tw-badge">winner</span>
+          <span class="tw-badge">admin</span>
+        </div>
+      </div>
+      <div class="sg-code">&#60;span class="tw-badge"&#62;you&#60;/span&#62;</div>
+    </div>
+
+    <!-- Alerts -->
+    <div class="sg-group">
+      <div class="sg-group-label">Alerts</div>
+      <div class="sg-demo">
+        <div>
+          <button disabled>submit</button>
+          <div class="tw-alert">answer must be at least 10 characters.</div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-alert"&#62;answer must be at least 10 characters.&#60;/div&#62;</div>
+    </div>
+
+    <!-- Table -->
+    <div class="sg-group">
+      <div class="sg-group-label">Table</div>
+      <div class="sg-demo">
+        <div class="tw-table-wrap" style="margin-top: 0;">
+          <table class="tw-table">
+            <thead>
+              <tr>
+                <th>player</th>
+                <th>score</th>
+                <th>rounds won</th>
+                <th>status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-clickable>
+                <td>Alice</td>
+                <td>840</td>
+                <td>3</td>
+                <td>active</td>
+              </tr>
+              <tr data-clickable>
+                <td>Bob</td>
+                <td>720</td>
+                <td>2</td>
+                <td>active</td>
+              </tr>
+              <tr data-clickable>
+                <td class="tw-muted">Charlie</td>
+                <td class="tw-muted">510</td>
+                <td class="tw-muted">1</td>
+                <td class="tw-muted">eliminated</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sg-code">&#60;table class="tw-table"&#62;
+  &#60;thead&#62;&#60;tr&#62;&#60;th&#62;player&#60;/th&#62;...&#60;/tr&#62;&#60;/thead&#62;
+  &#60;tbody&#62;
+    &#60;tr data-clickable&#62;&#60;td&#62;Alice&#60;/td&#62;...&#60;/tr&#62;
+  &#60;/tbody&#62;
+&#60;/table&#62;</div>
+    </div>
+
+    <!-- Section block -->
+    <div class="sg-group">
+      <div class="sg-group-label">Section Block</div>
+      <div class="sg-demo">
+        <div class="tw-panel" style="max-width: 480px;">
+          <div class="tw-eyebrow">round 2</div>
+          <h1 style="font-size: 28px;">the challenge</h1>
+
+          <div class="tw-section">
+            <div class="tw-label">your answer</div>
+            <textarea placeholder="write your response..."></textarea>
+            <div class="tw-action-row">
+              <div class="tw-meta tw-muted">48 / 200 characters</div>
+              <button>submit</button>
+            </div>
+          </div>
+
+          <div class="tw-section">
+            <div class="tw-label">players</div>
+            <div style="display: grid; gap: 6px;">
+              <div class="tw-card tw-card-active">
+                <span><span class="tw-speaker">Bob</span> <span class="tw-badge">you</span></span>
+                <span class="tw-meta tw-muted">submitted</span>
+              </div>
+              <div class="tw-card">
+                <span class="tw-speaker">Alice</span>
+                <span class="tw-waiting">thinking<span class="tw-dots"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-section"&#62;
+  &#60;div class="tw-label"&#62;your answer&#60;/div&#62;
+  &#60;!-- section content --&#62;
+&#60;/div&#62;</div>
+    </div>
+
+    <!-- Toggle -->
+    <div class="sg-group">
+      <div class="sg-group-label">Toggle</div>
+      <div class="sg-demo">
+        <div style="display: grid; gap: 20px;">
+
+          <!-- Binary -->
+          <div>
+            <div class="sg-swatch-label" style="margin-bottom: 10px;">binary — on / off</div>
+            <div class="sg-row" style="align-items: center; gap: 24px;">
+              <div class="tw-toggle" role="group" aria-label="notifications" data-toggle>
+                <button class="tw-toggle-opt tw-toggle-on">on</button>
+                <button class="tw-toggle-opt">off</button>
+              </div>
+              <div class="tw-toggle" role="group" aria-label="sound" data-toggle>
+                <button class="tw-toggle-opt">on</button>
+                <button class="tw-toggle-opt tw-toggle-on">off</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-option -->
+          <div style="border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+            <div class="sg-swatch-label" style="margin-bottom: 10px;">multi-option</div>
+            <div class="tw-toggle" role="group" aria-label="view mode" data-toggle>
+              <button class="tw-toggle-opt tw-toggle-on">list</button>
+              <button class="tw-toggle-opt">grid</button>
+              <button class="tw-toggle-opt">map</button>
+            </div>
+          </div>
+
+          <!-- With label -->
+          <div style="border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+            <div class="sg-swatch-label" style="margin-bottom: 10px;">with label</div>
+            <div style="display: inline-grid; gap: 6px;">
+              <div class="tw-label">sort by</div>
+              <div class="tw-toggle" role="group" aria-label="sort" data-toggle>
+                <button class="tw-toggle-opt tw-toggle-on">score</button>
+                <button class="tw-toggle-opt">name</button>
+                <button class="tw-toggle-opt">date</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Disabled -->
+          <div style="border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+            <div class="sg-swatch-label" style="margin-bottom: 10px;">disabled</div>
+            <div class="tw-toggle" role="group" aria-label="mode">
+              <button class="tw-toggle-opt tw-toggle-on" disabled>on</button>
+              <button class="tw-toggle-opt" disabled>off</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="sg-code">&#60;!-- Binary --&#62;
+&#60;div class="tw-toggle" role="group"&#62;
+  &#60;button class="tw-toggle-opt tw-toggle-on"&#62;on&#60;/button&#62;
+  &#60;button class="tw-toggle-opt"&#62;off&#60;/button&#62;
+&#60;/div&#62;
+
+&#60;!-- Multi-option --&#62;
+&#60;div class="tw-toggle" role="group"&#62;
+  &#60;button class="tw-toggle-opt tw-toggle-on"&#62;list&#60;/button&#62;
+  &#60;button class="tw-toggle-opt"&#62;grid&#60;/button&#62;
+  &#60;button class="tw-toggle-opt"&#62;map&#60;/button&#62;
+&#60;/div&#62;
+
+&#60;!-- JS: move tw-toggle-on to clicked option --&#62;
+document.querySelectorAll('[data-toggle]').forEach(group =&#62; {
+  group.addEventListener('click', e =&#62; {
+    const opt = e.target.closest('.tw-toggle-opt')
+    if (!opt || opt.disabled) return
+    group.querySelectorAll('.tw-toggle-opt').forEach(b =&#62; b.classList.remove('tw-toggle-on'))
+    opt.classList.add('tw-toggle-on')
+  })
+})</div>
+    </div>
+  </div>
+
+
+  <!-- ── Patterns ────────────────────────────────────────────── -->
+  <div class="sg-section" id="patterns">
+    <div class="sg-section-title">05 — Patterns</div>
+
+    <!-- Story reveal -->
+    <div class="sg-group">
+      <div class="sg-group-label">Story / Content Reveal</div>
+      <div class="sg-demo">
+        <div class="tw-section tw-story" style="margin-top: 0; padding-top: 0; border-top: none;">
+          <div class="tw-story-heading">round 1 — outcome</div>
+          <div class="tw-story-copy tw-story-complete">
+            <span class="tw-speaker">Alice</span> opened with a bold claim about the nature of time.
+            Her argument was swift and precise, leaving little room for rebuttal.
+            The judges awarded her <span class="tw-story-highlight">+120 points</span>.
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-story-heading"&#62;round 1 — outcome&#60;/div&#62;
+&#60;div class="tw-story-copy tw-story-complete"&#62;
+  &#60;span class="tw-speaker"&#62;Alice&#60;/span&#62; opened with a bold claim...
+  The judges awarded &#60;span class="tw-story-highlight"&#62;+120 points&#60;/span&#62;.
+&#60;/div&#62;
+
+&#60;!-- During reveal: class="tw-story-copy tw-story-revealing" (opacity 0.92) --&#62;
+&#60;!-- After reveal:  class="tw-story-copy tw-story-complete"  (opacity 1)    --&#62;</div>
+    </div>
+
+    <!-- Loading / waiting -->
+    <div class="sg-group">
+      <div class="sg-group-label">Loading &amp; Waiting States</div>
+      <div class="sg-demo">
+        <div style="display: grid; gap: 16px;">
+          <div class="tw-waiting">waiting for players to join<span class="tw-dots"></span></div>
+          <div class="tw-waiting">loading rounds<span class="tw-dots"></span></div>
+          <div class="tw-waiting">autosaving<span class="tw-dots"></span></div>
+          <div style="margin-top: 4px; border-top: 1px solid var(--tw-rule); padding-top: 16px;">
+            <p style="font-size: 13px; color: var(--tw-muted); margin-bottom: 8px;">Cursor blink (for typewriter effect)</p>
+            <span style="font-size: 18px;">the answer is revealed<span class="tw-cursor"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="sg-code">&#60;!-- Animated dots --&#62;
+&#60;div class="tw-waiting"&#62;waiting for players&#60;span class="tw-dots"&#62;&#60;/span&#62;&#60;/div&#62;
+
+&#60;!-- Blinking cursor --&#62;
+&#60;span class="tw-cursor"&#62;&#60;/span&#62;
+
+&#60;!-- In React/JS: cycle state every 450ms --&#62;
+const dots = [".", "..", "..."][Math.floor(Date.now() / 450) % 3]</div>
+    </div>
+
+    <!-- Auth form -->
+    <div class="sg-group">
+      <div class="sg-group-label">Auth / Entry Form</div>
+      <div class="sg-demo">
+        <div class="tw-panel" style="max-width: 380px;">
+          <div class="tw-eyebrow">text battle royale</div>
+          <h1 style="font-size: 36px;">join game</h1>
+          <p class="tw-lede">choose a name and enter the lobby code to join an active match.</p>
+          <div style="margin-top: 20px; display: grid; gap: 12px;">
+            <input type="text" placeholder="your name" />
+            <input type="text" placeholder="lobby code" />
+            <button>join match</button>
+            <div class="tw-alert" style="margin-top: 0;">lobby not found. check the code and try again.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action row -->
+    <div class="sg-group">
+      <div class="sg-group-label">Action Row</div>
+      <div class="sg-demo">
+        <div class="tw-action-row">
+          <div class="tw-meta tw-muted">round 2 of 5 · 0:42 remaining</div>
+          <button>submit</button>
+        </div>
+      </div>
+      <div class="sg-code">&#60;div class="tw-action-row"&#62;
+  &#60;div class="tw-meta tw-muted"&#62;round 2 of 5 · 0:42 remaining&#60;/div&#62;
+  &#60;button&#62;submit&#60;/button&#62;
+&#60;/div&#62;</div>
+    </div>
+  </div>
+
+
+  <!-- ── Animation ───────────────────────────────────────────── -->
+  <div class="sg-section" id="animation">
+    <div class="sg-section-title">06 — Animation</div>
+
+    <p style="font-size: 13px; color: var(--tw-dim); margin-bottom: 24px; line-height: 1.7; max-width: 60ch;">
+      This system uses the minimum motion necessary to communicate state. No entrance animations,
+      no scroll-triggered effects, no micro-interactions. Animation is reserved for:
+      (1) loading states that tell the user something is happening,
+      (2) content reveal that signals new information has arrived.
+    </p>
+
+    <ul class="sg-rule-list" style="border-top: 1px solid var(--tw-rule);">
+      <li>
+        <strong>Dot cycling — tw-dots (CSS) or JS interval at 450ms</strong>
+        Appends ".", "..", "..." in a loop. Used for all waiting/loading states.
+        Never use a spinner graphic — text communicates the same information.
+      </li>
+      <li>
+        <strong>Cursor blink — tw-cursor</strong>
+        Block cursor (▎) that blinks via step-end animation. Use at the end of text being typed out.
+        Remove once the reveal is complete.
+      </li>
+      <li>
+        <strong>Content reveal — tw-story-revealing → tw-story-complete</strong>
+        Opacity transition at 140ms linear. Content fades from 0.92 to 1 as it arrives,
+        signaling "this just changed." Never animate from 0 — the text should already be present.
+      </li>
+      <li>
+        <strong>Disabled state — opacity 0.6</strong>
+        No transition. The control is either on or off.
+      </li>
+      <li>
+        <strong>Hover state — background: #f5f5f5</strong>
+        No transition. Instant, like pressing a key.
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- ── Porting Guide ────────────────────────────────────────── -->
+  <div class="sg-section" id="porting">
+    <div class="sg-section-title">07 — Porting Guide</div>
+
+    <p style="font-size: 13px; color: var(--tw-dim); margin-bottom: 32px; line-height: 1.7; max-width: 64ch;">
+      To apply Typewriter to any new project, follow these steps in order.
+      The goal is to completely replace the existing visual language without touching logic.
+    </p>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">1</div>
+      <div class="sg-port-body">
+        <strong>Load the font</strong>
+        Add Courier Prime and IBM Plex Mono via Google Fonts. These are the only fonts the system uses.
+        <div class="sg-code" style="margin-top: 8px; border: 1px solid var(--tw-rule);">&#60;link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" /&#62;</div>
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">2</div>
+      <div class="sg-port-body">
+        <strong>Copy the CSS block</strong>
+        Paste everything between the START / END markers in this file's &lt;style&gt; block into
+        your global stylesheet. This defines all tokens and component classes.
+        Do not modify it — override with additional rules if needed.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">3</div>
+      <div class="sg-port-body">
+        <strong>Remove all border-radius</strong>
+        Search for border-radius in existing CSS and set everything to 0.
+        If using Tailwind, add <code>borderRadius: { DEFAULT: '0', none: '0' }</code> to the theme
+        and replace all rounded-* classes with <code>rounded-none</code>.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">4</div>
+      <div class="sg-port-body">
+        <strong>Replace color tokens</strong>
+        Map your existing color system to Typewriter tokens:
+        <div class="sg-copyblock" style="margin-top: 8px;">primary / brand    →  --tw-ink    (#111)
+background / surface →  --tw-paper  (#fff)
+secondary / subtle  →  --tw-muted  (#555)
+body text           →  --tw-dim    (#333)
+border / divider    →  --tw-rule   (#d0d0d0)
+error / danger      →  --tw-error  (#7a0000)
+hover / selected    →  --tw-hover / --tw-active-bg</div>
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">5</div>
+      <div class="sg-port-body">
+        <strong>Replace loading UI</strong>
+        Remove spinners, skeleton screens, and progress bars.
+        Replace with <code>.tw-waiting</code> text + <code>.tw-dots</code> CSS animation,
+        or a JS interval that cycles "." / ".." / "..." every 450ms.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">6</div>
+      <div class="sg-port-body">
+        <strong>Replace icon labels with text labels</strong>
+        Any icon-only button should become a text button. Any icon + label should drop the icon.
+        Text-transform: uppercase + letter-spacing does the visual work icons used to do.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">7</div>
+      <div class="sg-port-body">
+        <strong>Apply tw-eyebrow to all section headers</strong>
+        Any h2, h3, or label that acts as a section header should become a <code>.tw-eyebrow</code> or
+        <code>.tw-label</code>. This replaces decorative dividers with typographic hierarchy.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">8</div>
+      <div class="sg-port-body">
+        <strong>Convert cards to tw-card / tw-panel</strong>
+        Remove background colors, box shadows, and rounded corners from cards.
+        A card is just a 1px solid border with 10–12px padding. Active/selected state
+        is <code>border-color: var(--tw-ink); background: var(--tw-active-bg)</code>.
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">9</div>
+      <div class="sg-port-body">
+        <strong>Tailwind projects: extend theme</strong>
+        <div class="sg-copyblock" style="margin-top: 8px;">// tailwind.config.js
+theme: {
+  extend: {
+    fontFamily: {
+      mono: ['"Courier Prime"', '"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+    },
+    borderRadius: {
+      DEFAULT: '0',
+      none: '0',
+      sm: '0', md: '0', lg: '0', xl: '0', full: '0',
+    },
+    colors: {
+      ink:       '#111',
+      paper:     '#fff',
+      muted:     '#555',
+      dim:       '#333',
+      rule:      '#d0d0d0',
+      hover:     '#f5f5f5',
+      activeBg:  '#f7f7f7',
+      error:     '#7a0000',
+    },
+  },
+}</div>
+      </div>
+    </div>
+
+    <div class="sg-port-step">
+      <div class="sg-port-num">10</div>
+      <div class="sg-port-body">
+        <strong>Final check — the "typewriter test"</strong>
+        Open the app and ask: does it look like something you could print on paper and read as a document?
+        If yes, it passes. If there are gradients, shadows, icons, or rounded UI chrome, they need to go.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── Full CSS ─────────────────────────────────────────────── -->
+  <div class="sg-section" id="css">
+    <div class="sg-section-title">08 — Full CSS (copy this)</div>
+    <p style="font-size: 13px; color: var(--tw-dim); margin-bottom: 16px; line-height: 1.7;">
+      Everything below can be dropped into any project's global stylesheet.
+      The Google Fonts link must also be present in your HTML head.
+    </p>
+    <pre class="sg-copyblock">/* TYPEWRITER DESIGN SYSTEM — typewriter.css */
+/* Font: https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap */
+
+:root {
+  --tw-ink:        #111;
+  --tw-paper:      #fff;
+  --tw-muted:      #555;
+  --tw-dim:        #333;
+  --tw-rule:       #d0d0d0;
+  --tw-hover:      #f5f5f5;
+  --tw-active-bg:  #f7f7f7;
+  --tw-error:      #7a0000;
+  --tw-font: "Courier Prime", "IBM Plex Mono", ui-monospace,
+             SFMono-Regular, Menlo, Monaco, Consolas,
+             "Liberation Mono", monospace;
+  --tw-max-width:       720px;
+  --tw-max-width-wide:  1100px;
+
+  color-scheme: light;
+  font-family: var(--tw-font);
+  background: var(--tw-paper);
+  color: var(--tw-ink);
+  line-height: 1.45;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  background: var(--tw-paper);
+}
+
+body {
+  padding: 24px;
+  background:
+    linear-gradient(180deg, #fff 0%, #fafafa 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0.025) 0 1px,
+      transparent 1px 64px
+    );
+}
+
+h1, h2, h3, p { margin: 0; }
+
+button, input, textarea {
+  font: inherit;
+  border: 1px solid var(--tw-ink);
+  border-radius: 0;
+  background: var(--tw-paper);
+  color: var(--tw-ink);
+}
+
+button { padding: 10px 14px; cursor: pointer; }
+
+button:disabled,
+input:disabled,
+textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input, textarea { width: 100%; padding: 10px 12px; }
+textarea        { resize: vertical; min-height: 160px; }
+
+/* Layout */
+.tw-shell       { max-width: var(--tw-max-width); margin: 0 auto; min-height: calc(100vh - 48px); display: grid; place-items: center; }
+.tw-shell-wide  { max-width: var(--tw-max-width-wide); }
+.tw-app-card    { width: 100%; padding: 24px; }
+
+/* Containers */
+.tw-panel       { border: 1px solid var(--tw-ink); padding: 24px; background: var(--tw-paper); }
+.tw-card        { border: 1px solid var(--tw-rule); padding: 10px 12px; display: grid; gap: 6px; }
+.tw-card-active { border-color: var(--tw-ink); background: var(--tw-active-bg); }
+
+/* Sections */
+.tw-section     { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--tw-ink); display: grid; gap: 10px; }
+
+/* Typography */
+.tw-eyebrow     { text-transform: uppercase; letter-spacing: 0.18em; font-size: 12px; margin-bottom: 12px; }
+.tw-label       { text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; }
+.tw-lede        { margin-top: 8px; max-width: 38ch; font-size: 15px; color: var(--tw-dim); }
+.tw-meta        { font-size: 13px; text-transform: lowercase; letter-spacing: 0.04em; }
+.tw-speaker     { font-weight: 600; }
+.tw-muted       { color: var(--tw-muted); }
+.tw-dim         { color: var(--tw-dim);   }
+
+/* Badges */
+.tw-badge       { display: inline-block; padding: 1px 5px; border: 1px solid var(--tw-ink); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Feedback */
+.tw-alert       { margin-top: 12px; font-size: 13px; color: var(--tw-error); }
+.tw-waiting     { text-transform: lowercase; font-size: 13px; letter-spacing: 0.08em; color: var(--tw-dim); }
+.tw-button-hint { font-size: 12px; letter-spacing: 0.08em; text-transform: lowercase; color: var(--tw-muted); }
+
+/* Story / reveal */
+.tw-story-heading  { text-transform: uppercase; letter-spacing: 0.14em; font-size: 13px; font-weight: 600; }
+.tw-story-copy     { min-height: 3.5em; transition: opacity 140ms linear; }
+.tw-story-revealing { opacity: 0.92; }
+.tw-story-complete  { opacity: 1;    }
+.tw-story-highlight { font-weight: 700; }
+
+/* Layout utilities */
+.tw-action-row  { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.tw-join-block  { display: grid; gap: 8px; }
+
+/* Tables */
+.tw-table-wrap  { margin-top: 24px; overflow-x: auto; }
+.tw-table       { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tw-table th,
+.tw-table td    { border: 1px solid var(--tw-ink); padding: 10px 12px; text-align: left; vertical-align: top; }
+.tw-table tr[data-clickable]       { cursor: pointer; }
+.tw-table tr[data-clickable]:hover { background: var(--tw-hover); }
+
+/* Animations */
+@keyframes tw-blink     { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes tw-dot-cycle { 0% { content: "."; } 33% { content: ".."; } 66% { content: "..."; } }
+
+.tw-cursor::after { content: "▎"; animation: tw-blink 1s step-end infinite; }
+.tw-dots::after   { content: ""; animation: tw-dot-cycle 1.35s steps(1) infinite; }
+
+/* Toggle */
+.tw-toggle              { display: inline-flex; border: 1px solid var(--tw-ink); }
+.tw-toggle-opt          { border: none; border-right: 1px solid var(--tw-ink); padding: 8px 14px; background: var(--tw-paper); color: var(--tw-ink); cursor: pointer; letter-spacing: 0.06em; text-transform: lowercase; }
+.tw-toggle-opt:last-child { border-right: none; }
+.tw-toggle-opt:disabled { opacity: 0.6; cursor: not-allowed; }
+.tw-toggle-on           { background: var(--tw-ink); color: var(--tw-paper); }
+
+@media (max-width: 860px) {
+  body       { padding: 16px; }
+  .tw-shell  { min-height: calc(100vh - 32px); }
+  .tw-panel  { padding: 20px; }
+}</pre>
+  </div>
+
+
+
+  <!-- ── Component Roadmap ──────────────────────────────────── -->
+  <div class="sg-section" id="roadmap">
+    <div class="sg-section-title">09 — Component Roadmap</div>
+
+    <p style="font-size: 13px; color: var(--tw-dim); line-height: 1.7; max-width: 64ch;">
+      11 components — all approved and graduated into the design system.
+    </p>
+    <div class="tw-meta tw-muted" style="margin-top: 6px; margin-bottom: 32px;">11 of 11 approved</div>
+
+    <div class="sg-proposal-grid">
+
+      <!-- 1. Select -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Select</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div class="tw-cselect" data-cselect style="width: 180px;">
+            <button class="tw-cselect-btn" type="button">
+              <span class="tw-cselect-value">easy</span>
+              <span class="tw-cselect-arrow">▾</span>
+            </button>
+            <div class="tw-cselect-menu">
+              <button class="tw-cselect-opt" data-selected type="button">easy</button>
+              <button class="tw-cselect-opt" type="button">normal</button>
+              <button class="tw-cselect-opt" type="button">brutal</button>
+            </div>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Fully custom — no native OS chrome. Button + absolute dropdown built from existing border language. Click outside closes.</div>
+      </div>
+
+      <!-- 3. Radio -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Radio Group</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div style="display: grid; gap: 10px;">
+            <label class="tw-radio-opt"><input type="radio" name="sg-radio" checked /> easy</label>
+            <label class="tw-radio-opt"><input type="radio" name="sg-radio" /> normal</label>
+            <label class="tw-radio-opt"><input type="radio" name="sg-radio" /> brutal</label>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Filled inner square for selected state — legible and consistent with the checkbox idiom. No pseudo-circles.</div>
+      </div>
+
+      <!-- 5. Breadcrumb -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Breadcrumb</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <nav class="tw-breadcrumb">
+            <a href="#">home</a>
+            <span class="tw-breadcrumb-sep">/</span>
+            <a href="#">games</a>
+            <span class="tw-breadcrumb-sep">/</span>
+            <span>round 3</span>
+          </nav>
+        </div>
+        <div class="sg-proposal-note">/ as separator — the natural typewriter path delimiter. Ancestors muted, current page is ink. No chevrons.</div>
+      </div>
+
+      <!-- 6. Pagination -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Pagination</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div class="tw-toggle" role="group" data-toggle aria-label="pagination">
+            <button class="tw-toggle-opt">←</button>
+            <button class="tw-toggle-opt">1</button>
+            <button class="tw-toggle-opt tw-toggle-on">2</button>
+            <button class="tw-toggle-opt">3</button>
+            <button class="tw-toggle-opt">→</button>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Reuses tw-toggle — current page inverted. Zero new CSS. ← → arrows use the same option slot.</div>
+      </div>
+
+      <!-- 7. Toast -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Toast / Notification</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div style="display: grid; gap: 8px; width: 100%;">
+            <div class="tw-toast">
+              <div class="tw-toast-title">round submitted</div>
+              <div class="tw-toast-body">your answer was recorded. waiting for others.</div>
+            </div>
+            <div class="tw-toast tw-toast-error">
+              <div class="tw-toast-title">connection lost</div>
+              <div class="tw-toast-body">attempting to reconnect<span class="tw-dots"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Same border-first language as panels. Error variant applies --tw-error to border + title only — no background fill.</div>
+      </div>
+
+      <!-- 9. Progress -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Progress Bar</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div style="display: grid; gap: 14px; width: 100%;">
+            <div class="tw-progress">
+              <div class="tw-progress-label">round score</div>
+              <div class="tw-progress-track">█████████░░░░░░ 60%</div>
+            </div>
+            <div class="tw-progress">
+              <div class="tw-progress-label">time remaining</div>
+              <div class="tw-progress-track">████████████░░░ 80%</div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-proposal-note">ASCII block characters — no DOM trickery, no SVG. Generated in JS: █ × filled + ░ × empty + percentage.</div>
+      </div>
+
+      <!-- 10. Stepper — wide -->
+      <div class="sg-proposal sg-proposal-wide">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Stepper</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview" style="overflow-x: auto;">
+          <div class="tw-stepper">
+            <div class="tw-step tw-step-done">
+              <div class="tw-step-num">✓</div>
+              <div class="tw-step-label">join</div>
+            </div>
+            <div class="tw-step-line tw-step-line-done"></div>
+            <div class="tw-step tw-step-done">
+              <div class="tw-step-num">✓</div>
+              <div class="tw-step-label">lobby</div>
+            </div>
+            <div class="tw-step-line tw-step-line-done"></div>
+            <div class="tw-step tw-step-active">
+              <div class="tw-step-num">3</div>
+              <div class="tw-step-label">round</div>
+            </div>
+            <div class="tw-step-line"></div>
+            <div class="tw-step">
+              <div class="tw-step-num">4</div>
+              <div class="tw-step-label">results</div>
+            </div>
+            <div class="tw-step-line"></div>
+            <div class="tw-step">
+              <div class="tw-step-num">5</div>
+              <div class="tw-step-label">winner</div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Square step indicators. Done = ✓ with ink border. Active = inverted. Future = muted. Hairline connector scales with available width.</div>
+      </div>
+
+      <!-- 12. Accordion -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Accordion</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview" style="display: block; background: none; border: none; padding: 0;">
+          <div class="tw-accordion">
+            <div class="tw-accordion-item" data-open>
+              <button class="tw-accordion-trigger" data-accordion-trigger>
+                <span>how is scoring calculated?</span>
+                <span class="tw-accordion-icon">+</span>
+              </button>
+              <div class="tw-accordion-content">scores are based on votes from other players, multiplied by the round weight.</div>
+            </div>
+            <div class="tw-accordion-item">
+              <button class="tw-accordion-trigger" data-accordion-trigger>
+                <span>what happens on a tie?</span>
+                <span class="tw-accordion-icon">+</span>
+              </button>
+              <div class="tw-accordion-content">tied players both advance to the next round.</div>
+            </div>
+            <div class="tw-accordion-item">
+              <button class="tw-accordion-trigger" data-accordion-trigger>
+                <span>can i rejoin after disconnect?</span>
+                <span class="tw-accordion-icon">+</span>
+              </button>
+              <div class="tw-accordion-content">yes — use the same lobby code within 5 minutes.</div>
+            </div>
+          </div>
+        </div>
+        <div class="sg-proposal-note">+ rotates to × on open (80ms). Border on container, hairline between rows — same language as the table component.</div>
+      </div>
+
+      <!-- 13. Tags -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Tag / Chip</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview">
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+            <span class="tw-tag">debate <button class="tw-tag-remove" aria-label="remove debate">×</button></span>
+            <span class="tw-tag">timed <button class="tw-tag-remove" aria-label="remove timed">×</button></span>
+            <span class="tw-tag">teams <button class="tw-tag-remove" aria-label="remove teams">×</button></span>
+            <span class="tw-tag" style="color: var(--tw-muted); cursor: default; border-style: dashed;">+ add</span>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Lighter rule border than cards. × remove button inherits font. Read-only variant omits the button. Dashed border for add affordance.</div>
+      </div>
+
+      <!-- 16. Dropdown Menu -->
+      <div class="sg-proposal">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Dropdown Menu</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview" style="display: block; padding: 0; background: none; border: none;">
+          <div class="tw-dropdown-menu">
+            <button class="tw-dropdown-item tw-dropdown-item-active">view profile</button>
+            <button class="tw-dropdown-item">edit settings</button>
+            <button class="tw-dropdown-item">copy invite link</button>
+            <button class="tw-dropdown-item tw-dropdown-item-danger">leave game</button>
+          </div>
+        </div>
+        <div class="sg-proposal-note">Shown static/open here. Absolutely positioned in real use. Active item slightly shaded. Danger item uses --tw-error.</div>
+      </div>
+
+      <!-- 17. Code Block -->
+      <div class="sg-proposal sg-proposal-wide">
+        <div class="sg-proposal-header">
+          <div class="tw-label">Code Block</div>
+          <span class="tw-badge" style="font-size: 10px;">approved</span>
+        </div>
+        <div class="sg-proposal-preview" style="display: block; background: none; border: none; padding: 0;">
+          <div class="tw-code-block">
+            <div class="tw-code-header">
+              <span>game.ts</span>
+              <span class="tw-code-lang">typescript</span>
+            </div>
+            <div class="tw-code-body">
+              <table class="tw-code-table">
+                <tr><td class="tw-code-ln">1</td><td class="tw-code-line">const score = (votes: number, weight: number) =&gt; votes * weight</td></tr>
+                <tr><td class="tw-code-ln">2</td><td class="tw-code-line"></td></tr>
+                <tr><td class="tw-code-ln">3</td><td class="tw-code-line">const winner = players</td></tr>
+                <tr><td class="tw-code-ln">4</td><td class="tw-code-line">  .sort((a, b) =&gt; b.score - a.score)</td></tr>
+                <tr><td class="tw-code-ln">5</td><td class="tw-code-line">  .at(0)</td></tr>
+              </table>
+            </div>
+          </div>
+          <p style="font-size: 13px; margin-top: 12px; color: var(--tw-dim);">inline: <code class="tw-code-inline">tw-code-inline</code> for running text</p>
+        </div>
+        <div class="sg-proposal-note">Inverted header bar (ink bg) carries the filename + language. Line number gutter in muted, hairline divider. Block and inline variants.</div>
+      </div>
+
+    </div><!-- end sg-proposal-grid -->
+  </div>
+
+</div>
+
+<script>
+  // Toggle
+  document.querySelectorAll('[data-toggle]').forEach(group => {
+    group.addEventListener('click', e => {
+      const opt = e.target.closest('.tw-toggle-opt')
+      if (!opt || opt.disabled) return
+      group.querySelectorAll('.tw-toggle-opt').forEach(b => b.classList.remove('tw-toggle-on'))
+      opt.classList.add('tw-toggle-on')
+    })
+  })
+
+  // Tabs
+  document.querySelectorAll('[data-tabs]').forEach(group => {
+    group.addEventListener('click', e => {
+      const tab = e.target.closest('.tw-tab')
+      if (!tab) return
+      group.querySelectorAll('.tw-tab').forEach(t => t.classList.remove('tw-tab-active'))
+      tab.classList.add('tw-tab-active')
+    })
+  })
+
+  // Accordion
+  document.querySelectorAll('[data-accordion-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.tw-accordion-item')
+      const isOpen = item.hasAttribute('data-open')
+      item.closest('.tw-accordion').querySelectorAll('.tw-accordion-item').forEach(i => i.removeAttribute('data-open'))
+      if (!isOpen) item.setAttribute('data-open', '')
+    })
+  })
+
+  // Custom Select
+  document.querySelectorAll('[data-cselect]').forEach(sel => {
+    const btn = sel.querySelector('.tw-cselect-btn')
+    const val = sel.querySelector('.tw-cselect-value')
+    sel.querySelectorAll('.tw-cselect-opt').forEach(opt => {
+      opt.addEventListener('click', () => {
+        sel.querySelectorAll('.tw-cselect-opt').forEach(o => o.removeAttribute('data-selected'))
+        opt.setAttribute('data-selected', '')
+        val.textContent = opt.textContent.trim()
+        sel.removeAttribute('data-open')
+      })
+    })
+    btn.addEventListener('click', e => {
+      e.stopPropagation()
+      sel.toggleAttribute('data-open')
+    })
+  })
+  document.addEventListener('click', () => {
+    document.querySelectorAll('[data-cselect][data-open]').forEach(s => s.removeAttribute('data-open'))
+  })
+</script>
+</body>
+</html>
